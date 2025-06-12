@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký học viên</title>
+</head>
+<body>
+<h1><b2>Đăng ký học viên</b2></h1>
+<form action="submit.php" method="post">
+<label for="yourname">Họ và tên</label>
+  <input type="text" id="yourname" name="yourname" required><br><br>
+
+  <label for="Date">Ngày sinh</label>
+  <input type="text" id="Date" name="Date" required><br><br>
+
+  <label for="gender">Giới tính</label>
+  <input type="radio" id="Male" name="gender" value="Nam">
+  <label for="Male">Nam</label>
+
+  <input type="radio" id="Female" name="gender" value="Nữ">
+  <label for="Male">Nữ</label><br><br>
+
+  <label for="address">Địa chỉ</label>
+  <input type="text" id="address" name="address" required><br><br>
+
+  <label for="class">Lớp:</label>
+  <select id="class" name="class">
+    <option value="-CHọn lớp-">-Chọn lớp-</option>
+    <option value="math">Toán</option>
+    <option value="science">Khoa học</option>
+    <option value="history">Lịch sử</option>
+    <option value="literature">Văn học</option>
+    <option value="english">Tiếng Anh</option>
+
+  </select><br><br>
+  <label for="Email">Email</label>
+  <input type="text" id="Email" name="Email" required><br><br>
+
+  <label for="Điện thoại">Điện thoại</label>
+  <input type="text" id="Điện thoại" name="Điện thoại" required><br><br>
+
+  <button type="submit">Đăng ký</button>
+  <button type="reset">Nhập lại</button>
+
+
+</form>
+
+</body>
+</html>

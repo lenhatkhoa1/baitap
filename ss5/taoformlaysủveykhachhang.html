@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Khảo sát người dùng</title>
+</head>
+<body>
+<h2>Market Research Survey</h2>
+<p>Please take a few moments to complete this satisfaction survey.</p>
+<form action="submit.php" method="post">
+  <label for="age"><b>What is your age range?</b></label><br>
+  <select id="age" name="age">
+    <option value="18-24">18-24</option>
+    <option value="25-34">25-34</option>
+    <option value="35-50">35-50</option>
+    <option value="50+">50 trở lên</option>
+  </select><br><br>
+
+  <label for="income"><b>What is your yearly income range?</b></label><br>
+  <select id="income" name="income">
+    <option value="0-25000">$0 - $25,000</option>
+    <option value="2500-50000">$25,000 - $50,000</option>
+    <option value="50000-100000">$50,000 - $100,000</option>
+    <option value="100000+">$100,000+</option>
+  </select><br><br>
+
+  <label>Giới tính:</label><br>
+  <input type="radio" id="male" name="gender" value="Male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="Female">
+  <label for="female">Female</label><br>
+  <input type="radio" id="Nonbinary" name="gender" value="Nonbinary">
+  <label for="Nonbinary">Nonbinary</label><br>
+  <input type="radio" id="Other" name="gender" value="Other">
+  <label for="Other">Other</label><br><br>
+  <label for=""></label>
+  <input type="text" id="" name="" required><br><br>
+
+  <label>Which of the following products have your purchased in the last 2 months. Please check all that apply.(chọn tất cả những mục áp dụng):</label><br>
+  <input type="checkbox" name="product" value="product1"> Product 1<br>
+  <input type="checkbox" name="product" value="product2"> Product 2<br>
+  <input type="checkbox" name="product" value="product3"> Product 3<br><br>
+
+  <label>How often would you use our new product??</label><br>
+  <input type="radio" name="frequency" value="daily"> daily<br>
+  <input type="radio" name="frequency" value="weekly"> weekly<br>
+  <input type="radio" name="frequency" value="monthly"> monthly<br><br>
+
+  <label>What would you pay for the new product?</label><br>
+  <input type="number" name="price_dollars" placeholder="Dollars"> .
+  <input type="number" name="price_cents" placeholder="Cents"><br><br>
+
+  <button type="submit">Gửi khảo sát</button>
+</form>
+</body>
+</html>

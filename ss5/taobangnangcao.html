@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bàn Cờ Vua & Lịch</title>
+  <style>
+    .chessboard {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-template-rows: repeat(8, 50px);
+      border: 2px solid orange;
+      margin-bottom: 20px;
+    }
+    .chessboard div {
+      width: 50px;
+      height: 50px;
+    }
+    .chessboard .black {
+      background-color: black;
+    }
+    .chessboard .white {
+      background-color: white;
+    }
+
+    .calendar {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .calendar th, .calendar td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    .calendar th {
+      background-color: #f2f2f2;
+    }
+    .calendar .sunday {
+      background-color: red;
+    }
+    .calendar .saturday {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Bàn Cờ Vua</h1>
+<div class="chessboard">
+  <script>
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        let color = (i + j) % 2 === 0 ? "white" : "black";
+        document.write(`<div class="${color}"></div>`);
+      }
+    }
+  </script>
+</div>
+
+<h1>Lịch Tháng 10 Năm 2009</h1>
+<table class="calendar">
+  <tr>
+    <th class="sunday">C.Nhật<br>Sun</th>
+    <th>T.Hai<br>Mon</th>
+    <th>T.Ba<br>Tue</th>
+    <th>T.Tư<br>Wed</th>
+    <th>T.Năm<br>Thu</th>
+    <th>T.Sáu<br>Fri</th>
+    <th class="saturday">T.Bảy<br>Sat</th>
+  </tr>
+  <tr>
+    <td class="sunday">4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td class="saturday">10</td>
+  </tr>
+  <tr>
+    <td class="sunday">11</td>
+    <td>12</td>
+    <td>13</td>
+    <td>14</td>
+    <td>15</td>
+    <td>16</td>
+    <td class="saturday">17</td>
+  </tr>
+  <tr>
+    <td class="sunday">18</td>
+    <td>19</td>
+    <td>20</td>
+    <td>21</td>
+    <td>22</td>
+    <td>23</td>
+    <td class="saturday">24</td>
+  </tr>
+  <tr>
+    <td class="sunday">25</td>
+    <td>26</td>
+    <td>27</td>
+    <td>28</td>
+    <td>29</td>
+    <td>30</td>
+    <td class="saturday">31</td>
+  </tr>
+</table>
+
+</body>
+</html>

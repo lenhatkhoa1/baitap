@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích & chu vi hình tròn</title>
+</head>
+<body>
+<h1>Tính diện tích hình tròn</h1>
+<input id="banKinh" oninput="tinhDienTich()" placeholder="Nhập bán kính hình tròn">
+<button onclick="tinhDienTich()">Tính diện tích</button>
+<p id="ketQuaDienTich"></p>
+
+<h2>Tính chu vi hình tròn</h2>
+<input id="duongKinh" oninput="tinhChuVi()" placeholder="Nhập đường kính hình tròn">
+<button onclick="tinhChuVi()">Tính chu vi</button>
+<p id="ketQuaChuVi"></p>
+
+<script>
+    function tinhDienTich() {
+        let r = parseFloat(document.getElementById('banKinh').value);
+
+        if (isNaN(r) || r <= 0) {
+            document.getElementById("ketQuaDienTich").innerHTML = "<b>Vui lòng nhập bán kính hợp lệ!</b>";
+            return;
+        }
+
+        let s = r * r * Math.PI;
+        document.getElementById("ketQuaDienTich").innerHTML = "<b>Diện tích hình tròn:</b> " + s.toFixed(2);
+    }
+
+    function tinhChuVi() {
+        let d = parseFloat(document.getElementById('duongKinh').value);
+
+        if (isNaN(d) || d <= 0) {
+            document.getElementById("ketQuaChuVi").innerHTML = "<b>Vui lòng nhập đường kính hợp lệ!</b>";
+            return;
+        }
+
+        let c = d * Math.PI;
+        document.getElementById("ketQuaChuVi").innerHTML = "<b>Chu vi hình tròn:</b> " + c.toFixed(2);
+    }
+</script>
+</body>
+</html>

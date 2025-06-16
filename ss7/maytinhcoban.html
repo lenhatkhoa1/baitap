@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Máy Tính</title>
+</head>
+<body>
+<h3>Máy Tính Cơ Bản</h3>
+
+<input id="a" type="number" placeholder="Số 1">
+<input id="b" type="number" placeholder="Số 2"><br><br>
+
+<button onclick="tinh('+')">+</button>
+<button onclick="tinh('-')">-</button>
+<button onclick="tinh('*')">*</button>
+<button onclick="tinh('/')">/</button>
+
+<p id="ketqua"></p>
+
+<script>
+  function tinh(phepTinh) {
+    const a = parseFloat(document.getElementById('a').value);
+    const b = parseFloat(document.getElementById('b').value);
+    let kq;
+
+    if (phepTinh === '+') kq = a + b;
+    else if (phepTinh === '-') kq = a - b;
+    else if (phepTinh === '*') kq = a * b;
+    else if (phepTinh === '/') kq = b !== 0 ? (a / b) : 'Lỗi chia 0';
+
+    document.getElementById('ketqua').innerText = 'Kết quả: ' + kq;
+  }
+</script>
+</body>
+</html>

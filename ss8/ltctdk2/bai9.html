@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra tam giác hợp lệ</title>
+</head>
+<body>
+<h2>Kiểm tra 3 cạnh có tạo thành tam giác không</h2>
+<label for="a">Cạnh a:</label>
+<input type="number" id="a" placeholder="Ví dụ: 3" step="any"><br><br>
+<label for="b">Cạnh b:</label>
+<input type="number" id="b" placeholder="Ví dụ: 4" step="any"><br><br>
+<label for="c">Cạnh c:</label>
+<input type="number" id="c" placeholder="Ví dụ: 5" step="any"><br><br>
+<button onclick="kiemTraTamGiac()">Kiểm tra</button>
+<p id="ketqua"></p>
+
+<script>
+  function kiemTraTamGiac() {
+    const a = parseFloat(document.getElementById("a").value);
+    const b = parseFloat(document.getElementById("b").value);
+    const c = parseFloat(document.getElementById("c").value);
+    const ketqua = document.getElementById("ketqua");
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      ketqua.innerText = "Vui lòng nhập đầy đủ và hợp lệ ba cạnh.";
+      return;
+    }
+
+    if (a > 0 && b > 0 && c > 0 && a + b > c && b + c > a && a + c > b) {
+      ketqua.innerText = `${a}, ${b}, ${c} là độ dài hợp lệ của một tam giác.`;
+    } else {
+      ketqua.innerText = `Ba cạnh ${a}, ${b}, ${c} không tạo thành một tam giác.`;
+    }
+  }
+</script>
+</body>
+</html>

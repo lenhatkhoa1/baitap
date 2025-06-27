@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giải phương trình bậc nhất</title>
+</head>
+<body>
+<h2>Giải phương trình bậc nhất ax + b = 0</h2>
+<label for="a">Hệ số a:</label>
+<input type="number" id="a" placeholder="Ví dụ: 3"><br><br>
+<label for="b">Hệ số b:</label>
+<input type="number" id="b" placeholder="Ví dụ: -6"><br><br>
+<button onclick="giaiPT()">Giải phương trình</button>
+<p id="ketqua"></p>
+
+<script>
+  function giaiPT() {
+    const a = parseFloat(document.getElementById("a").value);
+    const b = parseFloat(document.getElementById("b").value);
+    const ketqua = document.getElementById("ketqua");
+
+    if (!isNaN(a) && !isNaN(b)) {
+      if (a === 0) {
+        if (b === 0) {
+          ketqua.innerText = "Phương trình có vô số nghiệm.";
+        } else {
+          ketqua.innerText = "Phương trình vô nghiệm.";
+        }
+      } else {
+        const x = -b / a;
+        ketqua.innerText = `Nghiệm của phương trình là x = ${x.toFixed(2)}`;
+      }
+    } else {
+      ketqua.innerText = "Vui lòng nhập đúng số cho cả a và b.";
+    }
+  }
+</script>
+</body>
+</html>

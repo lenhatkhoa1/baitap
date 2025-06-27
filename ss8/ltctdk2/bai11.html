@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<h2>Tính thuế thu nhập cá nhân</h2>
+<label for="thuNhap">Tổng thu nhập/tháng (VND):</label>
+<input type="number" id="thuNhap" placeholder="Ví dụ: 20000000"><br><br>
+
+<label for="nguoiPhuThuoc">Số người phụ thuộc:</label>
+<input type="number" id="nguoiPhuThuoc" placeholder="Ví dụ: 1"><br><br>
+
+<button onclick="tinhThue()">Tính thuế</button>
+<p id="ketqua"></p>
+
+<script>
+  function tinhThue() {
+    const thuNhap = parseFloat(document.getElementById("thuNhap").value);
+    const nguoiPhuThuoc = parseInt(document.getElementById("nguoiPhuThuoc").value);
+    const giamTruBanThan = 11000000; // Giảm trừ bản thân
+    const giamTruPhuThuoc = 4400000; // Mỗi người phụ thuộc
+
+    if (isNaN(thuNhap) || isNaN(nguoiPhuThuoc) || thuNhap <= 0 || nguoiPhuThuoc < 0) {
+      document.getElementById("ketqua").innerText = "Vui lòng nhập dữ liệu hợp lệ.";
+      return;
+    }
+
+    const thuNhapTinhThue = thuNhap - giamTruBanThan - (nguoiPhuThuoc * giamTruPhuThuoc);
+    let thue = 0;
+
+    const bacThue = [
+      { muc: 5000000, tyLe: 0.05 },
+      { muc: 10000000, tyLe: 0.10 },
+      { muc: 18000000, tyLe: 0.15 },
+      { muc: 32000000, tyLe: 0.20 },
+      { muc: 52000000, tyLe: 0.25 },
+      { muc: 80000000, tyLe: 0.30 },
+      { muc: Infinity, tyLe: 0.35 }
+    ];
+
+    let thuNhapConLai = thuNhapTinhThue;
+    let mucTruoc = 0;
+
+    for (let i = 0; i < bacThue.length; i++) {
+      if (thuNhapConLai <= 0) break;
+      let mucHienTai = bacThue[i].muc - mucTruoc;
+      let thuNhapChiuThue = Math.min(thuNhapConLai, mucHienTai);
+      thue += thuNhapChiuThue * bacThue[i].tyLe;
+      thuNhapConLai -= thuNhapChiuThue;
+      mucTruoc = bacThue[i].muc;
+    }
+
+    const ketqua = thuNhapTinhThue <= 0
+            ? "Không phải đóng thuế thu nhập cá nhân."
+            : `Số thuế phải nộp: ${Math.round(thue).toLocaleString()} VND`;
+
+    document.getElementById("ketqua").innerText = ketqua;
+  }
+</script>
+</body>
+</html>

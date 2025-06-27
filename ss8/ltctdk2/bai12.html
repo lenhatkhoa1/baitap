@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi kép ngân hàng</title>
+</head>
+<body>
+<h2>Tính lãi ngân hàng (lãi mẹ đẻ lãi con)</h2>
+<label for="von">Số tiền ban đầu (VND):</label>
+<input type="number" id="von" placeholder="Ví dụ: 10000000"><br><br>
+
+<label for="lai">Lãi suất hàng tháng (%):</label>
+<input type="number" id="lai" placeholder="Ví dụ: 0.8" step="any"><br><br>
+
+<label for="thang">Số tháng gửi:</label>
+<input type="number" id="thang" placeholder="Ví dụ: 12"><br><br>
+
+<button onclick="tinhLai()">Tính lãi</button>
+<p id="ketqua"></p>
+
+<script>
+    function tinhLai() {
+        const von = parseFloat(document.getElementById("von").value);
+        const lai = parseFloat(document.getElementById("lai").value);
+        const thang = parseInt(document.getElementById("thang").value);
+        const ketqua = document.getElementById("ketqua");
+
+        if (isNaN(von) || isNaN(lai) || isNaN(thang) || von <= 0 || lai <= 0 || thang <= 0) {
+            ketqua.innerText = "Vui lòng nhập dữ liệu hợp lệ.";
+            return;
+        }
+
+        const tiLe = lai / 100;
+        const tongTien = von * Math.pow((1 + tiLe), thang);
+        const laiNhanDuoc = tongTien - von;
+
+        ketqua.innerText = `Sau ${thang} tháng, bạn nhận được: ${tongTien.toLocaleString(undefined, {maximumFractionDigits: 0})} VND
+(Trong đó lãi là ${laiNhanDuoc.toLocaleString(undefined, {maximumFractionDigits: 0})} VND)`;
+    }
+</script>
+</body>
+</html>

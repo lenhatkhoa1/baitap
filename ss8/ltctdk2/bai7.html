@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giải phương trình bậc hai</title>
+</head>
+<body>
+<h2>Giải phương trình bậc hai ax² + bx + c = 0</h2>
+<label for="a">Hệ số a:</label>
+<input type="number" id="a" placeholder="Ví dụ: 1"><br><br>
+<label for="b">Hệ số b:</label>
+<input type="number" id="b" placeholder="Ví dụ: -3"><br><br>
+<label for="c">Hệ số c:</label>
+<input type="number" id="c" placeholder="Ví dụ: 2"><br><br>
+<button onclick="giaiPT()">Giải phương trình</button>
+<p id="ketqua"></p>
+
+<script>
+  function giaiPT() {
+    const a = parseFloat(document.getElementById("a").value);
+    const b = parseFloat(document.getElementById("b").value);
+    const c = parseFloat(document.getElementById("c").value);
+    const kq = document.getElementById("ketqua");
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      kq.innerText = "Vui lòng nhập đầy đủ và hợp lệ a, b, c.";
+      return;
+    }
+
+    if (a === 0) {
+      kq.innerText = "Đây không phải là phương trình bậc hai (a phải khác 0).";
+      return;
+    }
+
+    const delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+      const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+      const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      kq.innerText = `Phương trình có 2 nghiệm phân biệt: x₁ = ${x1.toFixed(2)}, x₂ = ${x2.toFixed(2)}`;
+    } else if (delta === 0) {
+      const x = -b / (2 * a);
+      kq.innerText = `Phương trình có nghiệm kép: x = ${x.toFixed(2)}`;
+    } else {
+      kq.innerText = "Phương trình vô nghiệm thực.";
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiem tra dieu kien vao lop 10</title>
+</head>
+<body>
+<h2>Kiem tra dieu kien vao lop 10</h2>
+<label for="tuoi">Nhap tuoi cua hoc sinh:</label>
+<input type="number" id="tuoi"><br><br>
+
+<button onclick="kiemTraTuoi()">Kiem tra</button>
+<p id="ketQua"></p>
+
+<script>
+  function kiemTraTuoi() {
+    const tuoi = parseInt(document.getElementById("tuoi").value);
+    const ketQua = document.getElementById("ketQua");
+
+    if (isNaN(tuoi)) {
+      ketQua.textContent = "Vui long nhap tuoi hop le.";
+    } else if (tuoi >= 15) {
+      ketQua.textContent = `Hoc sinh du dieu kien vao lop 10 (tuoi: ${tuoi}).`;
+    } else {
+      ketQua.textContent = `Hoc sinh chua du dieu kien vao lop 10 (tuoi: ${tuoi}).`;
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tim so lon nhat</title>
+</head>
+<body>
+<h2>Nhap 3 so nguyen de tim so lon nhat</h2>
+
+<label for="a">So thu nhat (a):</label>
+<input type="number" id="a"><br><br>
+
+<label for="b">So thu hai (b):</label>
+<input type="number" id="b"><br><br>
+
+<label for="c">So thu ba (c):</label>
+<input type="number" id="c"><br><br>
+
+<button onclick="timMax()">Tim so lon nhat</button>
+<p id="ketQua"></p>
+
+<script>
+  function timMax() {
+    const a = parseInt(document.getElementById("a").value);
+    const b = parseInt(document.getElementById("b").value);
+    const c = parseInt(document.getElementById("c").value);
+    const ketQua = document.getElementById("ketQua");
+
+    if (isNaN(a) || isNaN(b) || isNaN(c)) {
+      ketQua.textContent = "Vui long nhap day du ca 3 so.";
+    } else {
+      const max = Math.max(a, b, c);
+      ketQua.textContent = `So lon nhat la: ${max}`;
+    }
+  }
+</script>
+</body>
+</html>

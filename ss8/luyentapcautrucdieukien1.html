@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>t</title>
+</head>
+<body>
+<h2>kiem tra xem so a co chia het cho so b khong ?</h2>
+<label for="a">Nhap so a:</label>
+<input type="number" id="a"><br><br>
+
+<label for="b">Nhap so b:</label>
+<input type="number" id="b"><br><br>
+
+<button onclick="kiemTra()">Kiem tra</button>
+<p id="ketQua"></p>
+
+<script>
+    function kiemTra() {
+        const a = parseInt(document.getElementById("a").value);
+        const b = parseInt(document.getElementById("b").value);
+        const ketQua = document.getElementById("ketQua");
+
+        if (isNaN(a) || isNaN(b)) {
+            ketQua.textContent = "Vui long nhap đay đu hai so.";
+        } else if (b === 0) {
+            ketQua.textContent = "Khong the chia cho 0.";
+        } else if (a % b === 0) {
+            ketQua.textContent = `${a} chia het cho ${b}.`;
+        } else {
+            ketQua.textContent = `${a} khong chia het cho ${b}.`;
+        }
+    }
+</script>
+</body>
+</html>

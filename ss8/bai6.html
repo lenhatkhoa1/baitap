@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tinh hoa hong ban hang</title>
+</head>
+<body>
+<h2>Nhap doanh so ban hang</h2>
+
+<label for="doanhSo">Doanh so (VND):</label>
+<input type="number" id="doanhSo"><br><br>
+
+<button onclick="tinhHoaHong()">Tinh hoa hong</button>
+<p id="ketQua"></p>
+
+<script>
+  function tinhHoaHong() {
+    const doanhSo = parseFloat(document.getElementById("doanhSo").value);
+    const ketQua = document.getElementById("ketQua");
+    let hoaHong = 0;
+
+    if (isNaN(doanhSo) || doanhSo < 0) {
+      ketQua.textContent = "Vui long nhap doanh so hop le.";
+      return;
+    }
+
+    // Ty le hoa hong theo muc doanh so (co the thay doi)
+    if (doanhSo >= 100000000) {
+      hoaHong = doanhSo * 0.1; // 10%
+    } else if (doanhSo >= 50000000) {
+      hoaHong = doanhSo * 0.07; // 7%
+    } else if (doanhSo >= 20000000) {
+      hoaHong = doanhSo * 0.05; // 5%
+    } else {
+      hoaHong = doanhSo * 0.03; // 3%
+    }
+
+    ketQua.textContent = `Hoa hong nhan duoc: ${hoaHong.toLocaleString("vi-VN")} VND`;
+  }
+</script>
+</body>
+</html>

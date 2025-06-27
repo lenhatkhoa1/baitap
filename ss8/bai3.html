@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiem tra so am hay duong</title>
+</head>
+<body>
+<h2>Kiem tra mot so nguyen</h2>
+<label for="so">Nhap mot so nguyen:</label>
+<input type="number" id="so"><br><br>
+
+<button onclick="kiemTraSo()">Kiem tra</button>
+<p id="ketQua"></p>
+
+<script>
+  function kiemTraSo() {
+    const so = parseInt(document.getElementById("so").value);
+    const ketQua = document.getElementById("ketQua");
+
+    if (isNaN(so)) {
+      ketQua.textContent = "Vui long nhap so hop le.";
+    } else if (so > 0) {
+      ketQua.textContent = `${so} la so duong.`;
+    } else if (so < 0) {
+      ketQua.textContent = `${so} la so am.`;
+    } else {
+      ketQua.textContent = "So vua nhap la 0.";
+    }
+  }
+</script>
+</body>
+</html>

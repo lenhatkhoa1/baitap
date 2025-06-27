@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Xep loai hoc luc</title>
+</head>
+<body>
+<h2>Xep loai hoc luc hoc sinh</h2>
+
+<label for="kt">Diem bai kiem tra:</label>
+<input type="number" id="kt" step="0.1"><br><br>
+
+<label for="gk">Diem thi giua ky:</label>
+<input type="number" id="gk" step="0.1"><br><br>
+
+<label for="ck">Diem thi cuoi ky:</label>
+<input type="number" id="ck" step="0.1"><br><br>
+
+<button onclick="xepLoai()">Xep loai</button>
+<p id="ketQua"></p>
+
+<script>
+  function xepLoai() {
+    const kt = parseFloat(document.getElementById("kt").value);
+    const gk = parseFloat(document.getElementById("gk").value);
+    const ck = parseFloat(document.getElementById("ck").value);
+    const ketQua = document.getElementById("ketQua");
+
+    if (isNaN(kt) || isNaN(gk) || isNaN(ck)) {
+      ketQua.textContent = "Vui long nhap day du diem.";
+      return;
+    }
+
+    const tb = (kt + gk + ck) / 3;
+    let xepLoai = "";
+
+    if (tb >= 8) {
+      xepLoai = "Gioi";
+    } else if (tb >= 6.5) {
+      xepLoai = "Kha";
+    } else if (tb >= 5) {
+      xepLoai = "Trung binh";
+    } else {
+      xepLoai = "Yeu";
+    }
+
+    ketQua.textContent = `Diem trung binh: ${tb.toFixed(2)} - Xep loai: ${xepLoai}`;
+  }
+</script>
+</body>
+</html>

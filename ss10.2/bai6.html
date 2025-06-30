@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Trái tim bằng *</title>
+</head>
+<body>
+
+<h2></h2>
+<pre id="output"></pre>
+
+<script>
+  let heart = "";
+  const width = 30;
+
+  for (let y = 12; y >= -12; y--) {
+    for (let x = -width; x <= width; x++) {
+      const a = x * 0.05;
+      const b = y * 0.1;
+      const r = a * a + b * b - 1;
+      if (r * r * r - a * a * b * b * b <= 0) {
+        heart += "*";
+      } else {
+        heart += " ";
+      }
+    }
+    heart += "\n";
+  }
+
+  document.getElementById("output").textContent = heart;
+</script>
+
+</body>
+</html>

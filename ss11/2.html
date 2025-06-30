@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Chèn dấu - giữa các số chẵn</title>
+</head>
+<body>
+
+<h2> Chèn dấu <code>-</code> giữa hai số chẵn liên tiếp</h2>
+<input type="text" id="chuoiSo" placeholder="Nhập chuỗi số (vd: 025468)">
+<button onclick="chenDauTru()">Thực hiện</button>
+
+<div id="ketQua"></div>
+
+<script>
+  function chenDauTru() {
+    const chuoi = document.getElementById("chuoiSo").value;
+    let ketQua = chuoi[0];
+
+    for (let i = 1; i < chuoi.length; i++) {
+      let truoc = parseInt(chuoi[i - 1]);
+      let hienTai = parseInt(chuoi[i]);
+
+      if (!isNaN(truoc) && !isNaN(hienTai) && truoc % 2 === 0 && hienTai % 2 === 0) {
+        ketQua += "-" + chuoi[i];
+      } else {
+        ketQua += chuoi[i];
+      }
+    }
+
+    document.getElementById("ketQua").textContent = "Kết quả: " + ketQua;
+  }
+</script>
+
+</body>
+</html>

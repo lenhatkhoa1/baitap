@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Dãy Fibonacci </title>
+</head>
+<body>
+
+<h1>Dãy Fibonacci</h1>
+<label for="soLuong">Nhập số :</label>
+<input type="number" id="soLuong" value="" min="1">
+<button onclick="inFibonacci()">In</button>
+
+<div class="output" id="ketQua"></div>
+
+<script>
+  function inFibonacci() {
+    const n = parseInt(document.getElementById("soLuong").value);
+    let fib1 = 0, fib2 = 1, fibNext;
+    let output = "";
+
+    for (let i = 1; i <= n; i++) {
+      output += fib1 + (i < n ? ", " : "");
+      fibNext = fib1 + fib2;
+      fib1 = fib2;
+      fib2 = fibNext;
+    }
+
+    document.getElementById("ketQua").textContent = "Dãy Fibonacci: " + output;
+  }
+</script>
+
+</body>
+</html>

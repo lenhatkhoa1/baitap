@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Lãi Kép bằng Vòng Lặp</title>
+</head>
+<body>
+
+<h2>Tính Lãi Ngân Hàng</h2>
+
+<label>Số tiền ban đầu (VND):</label>
+<input type="number" id="von" value=""><br>
+
+<label>Số tháng gửi:</label>
+<input type="number" id="thang" value=""><br>
+
+<label>Lãi suất hàng tháng (%):</label>
+<input type="number" id="lai" value="" step="0.1"><br>
+
+<button onclick="tinhLai()">Tính</button>
+
+<div id="ketQua"></div>
+
+<script>
+  function tinhLai() {
+    let von = parseFloat(document.getElementById("von").value);
+    let thang = parseInt(document.getElementById("thang").value);
+    let lai = parseFloat(document.getElementById("lai").value) / 100;
+
+    for (let i = 1; i <= thang; i++) {
+      von += von * lai;
+    }
+
+    const ketQua = von.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    document.getElementById("ketQua").textContent = `Sau ${thang} tháng: ${ketQua}`;
+  }
+</script>
+
+</body>
+</html>

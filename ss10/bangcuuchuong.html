@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng cửu chương</title>
+</head>
+<body>
+
+<h1>Bảng cửu chương từ 2 đến 9</h1>
+<div id="bang-cuuchuong"></div>
+
+<script>
+    const container = document.getElementById("bang-cuuchuong");
+    const table = document.createElement("table");
+
+    for (let i = 1; i <= 9; i++) {
+        const row = document.createElement("tr");
+
+        for (let j = 2; j <= 9; j++) {
+            const cell = document.createElement("td");
+            cell.textContent = `${j} × ${i} = ${j * i}`;
+            row.appendChild(cell);
+        }
+
+        table.appendChild(row);
+    }
+
+    container.appendChild(table);
+</script>
+
+</body>
+</html>

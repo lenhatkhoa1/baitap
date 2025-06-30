@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm từ 1 đến 100</title>
+</head>
+<body>
+<h1>Kiểm tra Console để xem tiến trình đếm</h1>
+
+<script>
+  for (let i = 1; i <= 100; i++) {
+    const p = document.createElement('p');
+    p.textContent = "Số: " + i;
+    document.body.appendChild(p);
+
+    if (i === 99) {
+      alert("Đã hoàn thành đến số 99!");
+    }
+  }
+</script>
+</body>
+</html>

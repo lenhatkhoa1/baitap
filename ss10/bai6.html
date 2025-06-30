@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tổng 30 số chia hết cho 7</title>
+</head>
+<body>
+
+<h1>Tính tổng 30 số chia hết cho 7 đầu tiên</h1>
+<div id="hien-thi-so"></div>
+<div class="ket-qua" id="hien-thi-tong"></div>
+
+<script>
+  let count = 0;
+  let current = 1;
+  let tong = 0;
+  let danhSach = "";
+
+  while (count < 30) {
+    if (current % 7 === 0) {
+      tong += current;
+      danhSach += current + (count < 29 ? ", " : "");
+      count++;
+    }
+    current++;
+  }
+
+  document.getElementById("hien-thi-so").textContent = "Các số: " + danhSach;
+  document.getElementById("hien-thi-tong").textContent = "Tổng = " + tong;
+</script>
+
+</body>
+</html>

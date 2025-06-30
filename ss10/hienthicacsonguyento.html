@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>In số nguyên tố</title>
+</head>
+<body>
+
+<h1>Hiển thị n số nguyên tố đầu tiên</h1>
+<input type="number" id="numbers" value="" min="1">
+<button onclick="inSoNguyenTo()">In số nguyên tố</button>
+
+<div class="so-nguyen-to" id="ket-qua"></div>
+
+<script>
+  function laSoNguyenTo(n) {
+    if (n < 2) return false;
+    for (let i = 2; i <= Math.sqrt(n); i++) {
+      if (n % i === 0) return false;
+    }
+    return true;
+  }
+
+  function inSoNguyenTo() {
+    const numbers = parseInt(document.getElementById("numbers").value);
+    let count = 0;
+    let N = 2;
+    let ketQua = "";
+
+    while (count < numbers) {
+      if (laSoNguyenTo(N)) {
+        ketQua += N + " ";
+        count++;
+      }
+      N++;
+    }
+
+    document.getElementById("ket-qua").textContent = "" + ketQua.trim();
+  }
+</script>
+
+</body>
+</html>

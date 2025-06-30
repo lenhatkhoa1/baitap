@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đổi Hoa ↔ Thường</title>
+</head>
+<body>
+
+<h2>Đổi chữ thường thành hoa và ngược lại</h2>
+<input type="text" id="chuoi" placeholder="Nhập chữ của bạn" size="40">
+<br>
+<button onclick="chuyenChu()">Chuyển đổi</button>
+
+<div id="ketQua"></div>
+
+<script>
+  function chuyenChu() {
+    const input = document.getElementById("chuoi").value;
+    let ketQua = "";
+
+    for (let i = 0; i < input.length; i++) {
+      const kyTu = input[i];
+      if (kyTu === kyTu.toUpperCase()) {
+        ketQua += kyTu.toLowerCase();
+      } else {
+        ketQua += kyTu.toUpperCase();
+      }
+    }
+
+    document.getElementById("ketQua").textContent = "Kết quả: " + ketQua;
+  }
+</script>
+
+</body>
+</html>

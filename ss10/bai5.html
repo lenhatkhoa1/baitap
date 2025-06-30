@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tổng 20 số Fibonacci</title>
+</head>
+<body>
+
+<h2>Tính tổng 20 số Fibonacci đầu tiên</h2>
+<button onclick="tinhTong()">Tính ngay</button>
+<div id="ketQua"></div>
+
+<script>
+  function tinhTong() {
+    let fib1 = 0, fib2 = 1, next;
+    let sum = fib1 + fib2;
+    let sequence = [fib1, fib2];
+
+    for (let i = 3; i <= 20; i++) {
+      next = fib1 + fib2;
+      sequence.push(next);
+      sum += next;
+      fib1 = fib2;
+      fib2 = next;
+    }
+
+    document.getElementById("ketQua").innerHTML = `
+        Dãy Fibonacci (20 số):<br>${sequence.join(", ")}<br><br>
+        Tổng là: <strong>${sum}</strong>
+      `;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số từ trong chuỗi</title>
+</head>
+<body>
+<h2>Đếm số từ trong chuỗi</h2>
+
+<label>Nhập chuỗi của bạn:</label><br>
+<textarea id="textInput" rows="4" cols="50" placeholder="Nhập câu tại đây..."></textarea><br><br>
+
+<button onclick="countWords()">Đếm từ</button>
+
+<p>Chuỗi đã nhập: <span id="inputText"></span></p>
+<p>Số lượng từ: <strong id="wordCount"></strong></p>
+
+<script>
+    function countWords() {
+        const input = document.getElementById("textInput").value.trim();
+        document.getElementById("inputText").textContent = input;
+
+        if (input === "") {
+            document.getElementById("wordCount").textContent = 0;
+            return;
+        }
+
+        const words = input.split(/\s+/);
+        document.getElementById("wordCount").textContent = words.length;
+    }
+</script>
+</body>
+</html>

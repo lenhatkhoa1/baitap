@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đảo ngược mảng ký tự</title>
+</head>
+<body>
+<h2>In các ký tự trong mảng theo thứ tự đảo ngược</h2>
+
+<p>Mảng ban đầu: <span id="original"></span></p>
+<p>Chuỗi sau khi đảo ngược: <strong id="reversed"></strong></p>
+
+<script>
+  const arr = ['c', 's', 'c', '2', '6', '1'];
+  document.getElementById("original").textContent = `[ ${arr.join(", ")} ]`;
+
+  const reversed = arr.slice().reverse().join("");
+
+  document.getElementById("reversed").textContent = reversed;
+</script>
+</body>
+</html>

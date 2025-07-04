@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số ≥ 10</title>
+</head>
+<body>
+<h2>Đếm số nguyên lớn hơn hoặc bằng 10</h2>
+
+<p>Mảng: <span id="array"></span></p>
+<p>Số phần tử ≥ 10: <strong id="result"></strong></p>
+
+<script>
+    const arr = [5, 12, 8, 20, 3, 15, 7, 11, 9, 25];
+    document.getElementById("array").textContent = arr.join(", ");
+
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 10) {
+            count++;
+        }
+    }
+
+    document.getElementById("result").textContent = count;
+</script>
+</body>
+</html>

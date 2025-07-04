@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Xóa phần tử V khỏi mảng</title>
+</head>
+<body>
+<h2>Kiểm tra & Xóa phần tử trong mảng</h2>
+
+<label>Nhập mảng (10 số nguyên, cách nhau bằng dấu phẩy):</label><br>
+<input type="text" id="arrayInput" placeholder="Ví dụ: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10"><br><br>
+
+<label>Nhập giá trị V:</label><br>
+<input type="number" id="valueInput" placeholder="Ví dụ: 5"><br><br>
+
+<button onclick="removeValue()">Thực hiện</button>
+
+<p><strong>Kết quả:</strong></p>
+<p>Mảng ban đầu: <span id="original"></span></p>
+<p>Kết quả sau xử lý: <span id="resultArray"></span></p>
+<p><em id="message"></em></p>
+
+<script>
+    function removeValue() {
+        const rawArray = document.getElementById("arrayInput").value;
+        const value = parseInt(document.getElementById("valueInput").value, 10);
+        let arr = rawArray.split(',').map(n => parseInt(n.trim(), 10));
+
+        if (arr.length !== 10 || arr.some(isNaN)) {
+            document.getElementById("message").textContent = "Vui lòng nhập đúng 10 số nguyên hợp lệ.";
+            return;
+        }
+
+        document.getElementById("original").textContent = arr.join(", ");
+
+        const index = arr.indexOf(value);
+        if (index === -1) {
+            document.getElementById("message").textContent = `${value} is not in the array.`;
+            document.getElementById("resultArray").textContent = "";
+        } else {
+            for (let i = index; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+            arr[arr.length - 1] = 0;
+
+            document.getElementById("message").textContent = `${value} is in the array. Đã xóa thành công.`;
+            document.getElementById("resultArray").textContent = arr.join(", ");
+        }
+    }
+</script>
+</body>
+</html>

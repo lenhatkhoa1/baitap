@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sắp xếp mảng giảm dần</title>
+</head>
+<body>
+<h2>Sắp xếp mảng số nguyên (giảm dần)</h2>
+
+<label>Nhập mảng (10 số, cách nhau bởi dấu phẩy):</label><br>
+<input type="text" id="arrayInput" placeholder="VD: 5, 2, 9, 1, 8, 3, 7, 4, 6, 0"><br><br>
+
+<button onclick="sortArray()">Sắp xếp</button>
+
+<p>Mảng ban đầu: <span id="original"></span></p>
+<p>Mảng đã sắp xếp (giảm dần): <strong id="sorted"></strong></p>
+
+<script>
+  function sortArray() {
+    const input = document.getElementById("arrayInput").value;
+    const arr = input.split(',').map(num => parseInt(num.trim(), 10));
+
+    if (arr.length !== 10 || arr.some(isNaN)) {
+      document.getElementById("original").textContent = "";
+      document.getElementById("sorted").textContent = "";
+      alert("Vui lòng nhập đúng 10 số nguyên, cách nhau bằng dấu phẩy.");
+      return;
+    }
+
+    document.getElementById("original").textContent = arr.join(", ");
+
+    arr.sort((a, b) => b - a);
+
+    document.getElementById("sorted").textContent = arr.join(", ");
+  }
+</script>
+</body>
+</html>

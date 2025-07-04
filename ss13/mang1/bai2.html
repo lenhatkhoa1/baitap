@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị lớn nhất trong mảng</title>
+</head>
+<body>
+<h2>Tìm phần tử lớn nhất và vị trí của nó</h2>
+
+<p>Mảng: <span id="array"></span></p>
+<p>Giá trị lớn nhất: <strong id="maxValue"></strong></p>
+<p>Vị trí (chỉ số): <strong id="maxIndex"></strong></p>
+
+<script>
+    const arr = [12, 5, 23, 7, 18, 9, 30, 1, 14, 20]; // 10 phần tử khác nhau
+    document.getElementById("array").textContent = arr.join(", ");
+
+    let max = arr[0];
+    let index = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+            index = i;
+        }
+    }
+
+    document.getElementById("maxValue").textContent = max;
+    document.getElementById("maxIndex").textContent = index;
+</script>
+</body>
+</html>

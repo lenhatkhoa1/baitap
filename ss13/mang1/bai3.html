@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giá trị lớn nhất & trung bình</title>
+</head>
+<body>
+<h2>Phân tích mảng số nguyên</h2>
+
+<p>Mảng: <span id="array"></span></p>
+<p>Giá trị lớn nhất: <strong id="maxValue"></strong></p>
+<p>Giá trị trung bình: <strong id="average"></strong></p>
+
+<script>
+  const arr = [15, 3, 22, 9, 18, 7, 12, 25, 4, 10];
+  document.getElementById("array").textContent = arr.join(", ");
+
+  let max = arr[0];
+  let sum = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > max) max = arr[i];
+    sum += arr[i];
+  }
+
+  const average = sum / arr.length;
+
+  document.getElementById("maxValue").textContent = max;
+  document.getElementById("average").textContent = average.toFixed(2); // Làm tròn 2 chữ số
+</script>
+</body>
+</html>

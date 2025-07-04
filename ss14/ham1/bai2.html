@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tăng giá trị số</title>
+  <script>
+    function increaseByOne(number) {
+      return number + 1;
+    }
+  </script>
+</head>
+<body>
+<h2>Hàm tăng số lên 1 đơn vị</h2>
+
+<p>Giá trị ban đầu: <span id="initialValue"></span></p>
+<p>Giá trị sau khi tăng: <strong id="resultValue"></strong></p>
+
+<script>
+  const inputNumber = 9;
+  const newValue = increaseByOne(inputNumber);
+
+  document.getElementById("initialValue").textContent = inputNumber;
+  document.getElementById("resultValue").textContent = newValue;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>So sánh hai chuỗi</title>
+</head>
+<body>
+<h2>So sánh chuỗi</h2>
+
+<label>Chuỗi thứ nhất:</label><br>
+<input type="text" id="string1"><br><br>
+
+<label>Chuỗi thứ hai:</label><br>
+<input type="text" id="string2"><br><br>
+
+<button onclick="compareStrings()">So sánh</button>
+
+<p id="result"></p>
+
+<script>
+  function compareStrings() {
+    const str1 = document.getElementById("string1").value;
+    const str2 = document.getElementById("string2").value;
+
+    if (str1 === str2) {
+      document.getElementById("result").textContent = "Hai chuỗi giống nhau.";
+    } else {
+      document.getElementById("result").textContent = "Hai chuỗi KHÔNG giống nhau.";
+    }
+  }
+</script>
+</body>
+</html>

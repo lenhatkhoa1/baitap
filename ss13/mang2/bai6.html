@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thay ký tự - bằng _</title>
+</head>
+<body>
+<h2>Thay thế ký tự '-' bằng '_'</h2>
+
+<label>Nhập mảng ký tự (cách nhau bởi dấu phẩy):</label><br>
+<input type="text" id="charInput" placeholder="VD: a, -, b, c, -, d"><br><br>
+
+<button onclick="replaceHyphen()">Thực hiện</button>
+
+<p>Mảng ban đầu: <span id="original"></span></p>
+<p>Mảng sau khi thay thế: <strong id="modified"></strong></p>
+
+<script>
+  function replaceHyphen() {
+    const input = document.getElementById("charInput").value;
+    const arr = input.split(',').map(ch => ch.trim());
+
+    document.getElementById("original").textContent = `[ ${arr.join(', ')} ]`;
+
+    const replaced = arr.map(ch => ch === '-' ? '_' : ch);
+
+    document.getElementById("modified").textContent = `[ ${replaced.join(', ')} ]`;
+  }
+</script>
+</body>
+</html>

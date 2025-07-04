@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra phần tử trong mảng</title>
+</head>
+<body>
+<h2>Kiểm tra phần tử V trong mảng</h2>
+
+<label>Nhập mảng (10 số nguyên, cách nhau bằng dấu phẩy):</label><br>
+<input type="text" id="arrayInput" placeholder="Ví dụ: 1,2,3,4,5,6,7,8,9,10"><br><br>
+
+<label>Nhập số nguyên V:</label><br>
+<input type="number" id="valueInput" placeholder="Ví dụ: 5"><br><br>
+
+<button onclick="checkValue()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+  function checkValue() {
+    const arrayStr = document.getElementById("arrayInput").value;
+    const value = parseInt(document.getElementById("valueInput").value, 10);
+
+    const array = arrayStr.split(',').map(num => parseInt(num.trim(), 10));
+
+    if (array.length !== 10 || array.some(isNaN)) {
+      document.getElementById("result").textContent = "Vui lòng nhập đúng 10 số nguyên.";
+      return;
+    }
+
+    const found = array.includes(value);
+
+    document.getElementById("result").textContent = found
+            ? `${value} is in the array.`
+            : `${value} is not in the array.`;
+  }
+</script>
+</body>
+</html>

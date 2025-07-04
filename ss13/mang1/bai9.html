@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Nối hai mảng số nguyên</title>
+</head>
+<body>
+<h2>Nối mảng b và a vào mảng c</h2>
+
+<label>Nhập mảng a (10 số, cách nhau bằng dấu phẩy):</label><br>
+<input type="text" id="arrayA" placeholder="VD: 1,2,3,4,5,6,7,8,9,10"><br><br>
+
+<label>Nhập mảng b (10 số, cách nhau bằng dấu phẩy):</label><br>
+<input type="text" id="arrayB" placeholder="VD: 11,12,13,14,15,16,17,18,19,20"><br><br>
+
+<button onclick="mergeArrays()">Gộp mảng</button>
+
+<p>Mảng a: <span id="displayA"></span></p>
+<p>Mảng b: <span id="displayB"></span></p>
+<p>Mảng c (b + a): <strong id="resultC"></strong></p>
+
+<script>
+  function mergeArrays() {
+    const aInput = document.getElementById("arrayA").value;
+    const bInput = document.getElementById("arrayB").value;
+
+    const a = aInput.split(',').map(n => parseInt(n.trim(), 10));
+    const b = bInput.split(',').map(n => parseInt(n.trim(), 10));
+
+    if (a.length !== 10 || b.length !== 10 || a.some(isNaN) || b.some(isNaN)) {
+      alert("Vui lòng nhập đúng 10 số nguyên cho mỗi mảng.");
+      return;
+    }
+
+    const c = b.concat(a);
+
+    document.getElementById("displayA").textContent = a.join(", ");
+    document.getElementById("displayB").textContent = b.join(", ");
+    document.getElementById("resultC").textContent = c.join(", ");
+  }
+</script>
+</body>
+</html>

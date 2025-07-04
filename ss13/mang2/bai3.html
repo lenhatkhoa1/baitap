@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm ký tự là chữ số</title>
+</head>
+<body>
+<h2>Đếm số ký tự số trong mảng ký tự</h2>
+
+<p>Mảng ký tự: <span id="charArray"></span></p>
+<p>Số lượng ký tự số (0-9): <strong id="digitCount"></strong></p>
+
+<script>
+  const arr = ['a', '5', 'c', '3', 'B', '9', '1', 'z', '7', '%']; // mảng gồm 10 ký tự bất kỳ
+  document.getElementById("charArray").textContent = `[ ${arr.join(", ")} ]`;
+
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] >= '0' && arr[i] <= '9') {
+      count++;
+    }
+  }
+
+  document.getElementById("digitCount").textContent = count;
+</script>
+</body>
+</html>

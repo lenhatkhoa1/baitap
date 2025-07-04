@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Liệt kê số nguyên tố nhỏ hơn 10000</title>
+</head>
+<body>
+<h2>Các số nguyên tố nhỏ hơn 10.000:</h2>
+<pre id="output"></pre>
+
+<script>
+    function isPrime(number) {
+        if (number < 2) return false;
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i === 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    let result = "";
+    for (let i = 2; i < 10000; i++) {
+        if (isPrime(i)) {
+            result += i + " ";
+        }
+    }
+
+    document.getElementById("output").textContent = result;
+</script>
+</body>
+</html>

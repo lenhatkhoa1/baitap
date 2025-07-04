@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số nguyên âm</title>
+</head>
+<body>
+<h2>Nhập chuỗi chứa số nguyên (ngăn cách bởi dấu phẩy)</h2>
+
+<input type="text" id="input" placeholder="Ví dụ: -5, 3, 0, -10, 7">
+<button onclick="countNegative()">Đếm số nguyên âm</button>
+
+<p>Chuỗi đã nhập: <span id="original"></span></p>
+<p>Số lượng số nguyên âm: <strong id="result"></strong></p>
+
+<script>
+    function countNegative() {
+        const input = document.getElementById("input").value;
+        const arr = input.split(',').map(s => parseInt(s.trim(), 10));
+
+        const count = arr.filter(num => num < 0 && Number.isInteger(num)).length;
+
+        document.getElementById("original").textContent = arr.join(", ");
+        document.getElementById("result").textContent = count;
+    }
+</script>
+</body>
+</html>

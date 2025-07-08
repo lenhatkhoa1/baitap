@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiem tra so nguyen duong</title>
+  <script>
+
+    function isPositiveInteger(n) {
+      return Number.isInteger(n) && n > 0;
+    }
+
+
+    function testNumber() {
+      let input = prompt("Nhap mot so bat ky:");
+      let num = Number(input);
+
+      if (isNaN(num)) {
+        alert("Du lieu nhap vao khong phai la so.");
+      } else {
+        let result = isPositiveInteger(num);
+        document.getElementById("output").innerText =
+                "So '" + input + "' la so nguyen duong: " + result;
+      }
+    }
+  </script>
+</head>
+<body onload="testNumber()">
+
+<h2>Ket qua kiem tra:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

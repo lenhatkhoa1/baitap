@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chuyển đổi đơn vị</title>
+</head>
+<body>
+
+<label for="feetInput">Nhập số feet để chuyển đổi sang meter:</label><br>
+<input type="number" id="feetInput" placeholder="Feet"><br>
+<button onclick="convertFeet()">Chuyển đổi sang Meter</button>
+<p id="meterOutput"></p>
+
+<br>
+
+<label for="meterInput">Nhập số meter để chuyển đổi sang feet:</label><br>
+<input type="number" id="meterInput" placeholder="Meter"><br>
+<button onclick="convertMeter()">Chuyển đổi sang Feet</button>
+<p id="feetOutput"></p>
+
+<script>
+    function footToMeter(foot) {
+        return 0.305 * foot;
+    }
+
+    function meterToFoot(meter) {
+        return 3.279 * meter;
+    }
+
+    function convertFeet() {
+        const foot = parseFloat(document.getElementById("feetInput").value);
+        const meter = footToMeter(foot);
+        document.getElementById("meterOutput").textContent = `${foot} feet = ${meter.toFixed(3)} meters`;
+    }
+
+    function convertMeter() {
+        const meter = parseFloat(document.getElementById("meterInput").value);
+        const foot = meterToFoot(meter);
+        document.getElementById("feetOutput").textContent = `${meter} meters = ${foot.toFixed(3)} feet`;
+    }
+</script>
+
+</body>
+</html>

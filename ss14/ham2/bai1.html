@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tinh binh phuong</title>
+  <script>
+
+    function squareNumber(x) {
+      return x * x;
+    }
+
+
+    function testSquare() {
+      let input = prompt("Nhap mot so bat ky:");
+      let number = parseFloat(input);
+      if (isNaN(number)) {
+        alert("Du lieu nhap vao khong phai so.");
+      } else {
+        let result = squareNumber(number);
+        document.getElementById("output").innerText = "Binh phuong cua " + number + " la: " + result;
+      }
+    }
+  </script>
+</head>
+<body onload="testSquare()">
+
+<h2>Ket qua tinh toan:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

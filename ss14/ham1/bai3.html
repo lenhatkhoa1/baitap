@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>So sánh và tính tổng</title>
+</head>
+<body>
+
+<label for="aInput">Tham so thu nhat:</label><br>
+<input type="number" id="aInput"><br>
+
+<label for="bInput">Tham so thu hai:</label><br>
+<input type="number" id="bInput"><br><br>
+
+<button onclick="kiemTraVaTinhTong()">Thuc hien</button>
+
+<p id="ketQua"></p>
+
+<script>
+    function kiemTraVaTinhTong(a, b) {
+        if (a > b) {
+            alert("Tham so thu nhat lon hon tham so thu hai!");
+        } else {
+            return a + b;
+        }
+    }
+
+    function kiemTraVaTinhTong() {
+        const a = parseFloat(document.getElementById("aInput").value);
+        const b = parseFloat(document.getElementById("bInput").value);
+        const ketQua = kiemTraVaTinhTong(a, b);
+
+        if (ketQua !== undefined) {
+            document.getElementById("ketQua").textContent = `Tổng = ${ketQua}`;
+        } else {
+            document.getElementById("ketQua").textContent = ""; // Xoá nếu hiển thị alert
+        }
+    }
+</script>
+
+</body>
+</html>

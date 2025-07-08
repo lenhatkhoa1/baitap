@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiem tra ky tu so</title>
+  <script>
+
+    function isDigit(char) {
+      return /^\d$/.test(char);
+    }
+
+
+    function testCharacter() {
+      let input = prompt("Nhap mot ky tu:");
+      if (input.length !== 1) {
+        alert("Chi nhap mot ky tu duy nhat.");
+      } else {
+        let result = isDigit(input);
+        document.getElementById("output").innerText =
+                "Ky tu '" + input + "' la chu so: " + result;
+      }
+    }
+  </script>
+</head>
+<body onload="testCharacter()">
+
+<h2>Ket qua kiem tra ky tu:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

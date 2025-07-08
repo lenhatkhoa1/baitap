@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bai 5 - Tim chom sao</title>
+    <script>
+
+        const stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+
+
+        const constellations = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+
+        function getConstellation(starName) {
+            for (let i = 0; i < stars.length; i++) {
+                if (stars[i].toLowerCase() === starName.toLowerCase()) {
+                    return constellations[i];
+                }
+            }
+            return null;
+        }
+
+
+        function promptUser() {
+            let input = prompt("Nhap ten ngoi sao:");
+            let result = getConstellation(input);
+            if (result !== null) {
+                document.getElementById("output").innerText = "Chom sao tuong ung: " + result;
+            } else {
+                document.getElementById("output").innerText = "Khong tim thay ngoi sao.";
+            }
+        }
+    </script>
+</head>
+<body onload="promptUser()">
+
+<h2>Ket qua tim kiem:</h2>
+<div id="output" style="font-weight: bold; font-size: 16px;"></div>
+
+</body>
+</html>

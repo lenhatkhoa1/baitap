@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tinh giai thua</title>
+  <script>
+
+    function factorial(n) {
+      if (n < 0) return null;
+      let result = 1;
+      for (let i = 2; i <= n; i++) {
+        result *= i;
+      }
+      return result;
+    }
+
+
+    function testFactorial() {
+      let input = prompt("Nhap mot so nguyen:");
+      let num = parseInt(input);
+      if (isNaN(num) || num < 0) {
+        alert("So nhap vao khong hop le. Vui long nhap so nguyen >= 0.");
+      } else {
+        let output = factorial(num);
+        document.getElementById("result").innerText =
+                "Giai thua cua " + num + " la: " + output;
+      }
+    }
+  </script>
+</head>
+<body onload="testFactorial()">
+
+<h2>Ket qua tinh giai thua:</h2>
+<div id="result" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

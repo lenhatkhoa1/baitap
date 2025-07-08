@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doi cho hai so</title>
+  <script>
+
+    function swapNumbers(a, b) {
+      let temp = a;
+      a = b;
+      b = temp;
+      return [a, b];
+    }
+
+
+    function testSwap() {
+      let x = parseInt(prompt("Nhap so nguyen thu nhat:"));
+      let y = parseInt(prompt("Nhap so nguyen thu hai:"));
+
+      if (isNaN(x) || isNaN(y)) {
+        alert("Vui long nhap hai gia tri la so nguyen.");
+      } else {
+        document.getElementById("before").innerText = "Truoc khi doi: x = " + x + ", y = " + y;
+        let [newX, newY] = swapNumbers(x, y);
+        document.getElementById("after").innerText = "Sau khi doi: x = " + newX + ", y = " + newY;
+      }
+    }
+  </script>
+</head>
+<body onload="testSwap()">
+
+<h2>Ket qua doi cho:</h2>
+<p id="before"></p>
+<p id="after" style="font-weight: bold;"></p>
+
+</body>
+</html>

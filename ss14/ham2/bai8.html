@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dao nguoc mang</title>
+  <script>
+
+    function reverseArray(arr) {
+      return arr.reverse();
+    }
+
+
+    function testReverse() {
+      let input = prompt("Nhap cac so nguyen, cach nhau boi dau phay (vd: 1,2,3,4):");
+      let arr = input.split(",").map(x => parseInt(x.trim()));
+
+      if (arr.some(isNaN)) {
+        alert("Du lieu khong hop le. Vui long nhap cac so nguyen.");
+      } else {
+        let reversed = reverseArray(arr);
+        document.getElementById("output").innerText =
+                "Mang dao nguoc: " + reversed.join(", ");
+      }
+    }
+  </script>
+</head>
+<body onload="testReverse()">
+
+<h2>Ket qua:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

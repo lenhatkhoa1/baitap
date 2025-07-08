@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kiem tra ky tu trong mang</title>
+  <script>
+    
+    function checkCharacter(arr, char) {
+      let count = 0;
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === char) {
+          count++;
+        }
+      }
+      return count > 0 ? count : -1;
+    }
+
+
+    function testCharacterSearch() {
+      let inputArray = prompt("Nhap mang ky tu, cach nhau boi dau phay (vi du: a,b,c,d,a):");
+      let charToFind = prompt("Nhap ky tu muon kiem tra:");
+      let array = inputArray.split(",").map(c => c.trim());
+
+      if (charToFind.length !== 1) {
+        alert("Chi nhap mot ky tu can kiem tra.");
+      } else {
+        let result = checkCharacter(array, charToFind);
+        if (result === -1) {
+          document.getElementById("output").innerText =
+                  "Ky tu '" + charToFind + "' khong co trong mang.";
+        } else {
+          document.getElementById("output").innerText =
+                  "Ky tu '" + charToFind + "' xuat hien " + result + " lan trong mang.";
+        }
+      }
+    }
+  </script>
+</head>
+<body onload="testCharacterSearch()">
+
+<h2>Ket qua kiem tra:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

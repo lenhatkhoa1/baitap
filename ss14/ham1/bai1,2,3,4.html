@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bai tap JavaScript</title>
+  <script>
+
+    function alertMessage() {
+      alert("Xin chao");
+    }
+
+
+    function increase(num) {
+      return num + 1;
+    }
+
+
+    function handleCompare(a, b) {
+      if (a > b) {
+        alert("Tham so thu nhat lon hon tham so thu hai");
+      } else {
+        return a + b;
+      }
+    }
+
+
+    function addNumbers() {
+      let firstNum = 4;
+      let secondNum = 8;
+      let result = firstNum + secondNum;
+      alert("Gia tri cua result trong ham: " + result);
+      return result;
+    }
+  </script>
+</head>
+<body onload="alertMessage()">
+
+<h2>Ket qua hien thi:</h2>
+
+<script>
+
+  let tang = increase(7);
+  document.write("<p>Gia tri sau khi tang la: " + tang + "</p>");
+
+
+  let ketQuaSo = handleCompare(5, 9);
+  if (ketQuaSo !== undefined) {
+    document.write("<p>Tong hai so la: " + ketQuaSo + "</p>");
+  }
+
+
+  let result = 0;
+  alert("Gia tri cua result truoc khi goi ham: " + result);
+  result = addNumbers();
+  alert("Gia tri cua result sau khi goi ham: " + result);
+</script>
+
+</body>
+</html>

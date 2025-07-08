@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tim so nho nhat</title>
+  <script>
+
+    function findMin(a, b, c) {
+      return Math.min(a, b, c);
+    }
+
+
+    function testFindMin() {
+      let x = parseInt(prompt("Nhap so nguyen thu nhat:"));
+      let y = parseInt(prompt("Nhap so nguyen thu hai:"));
+      let z = parseInt(prompt("Nhap so nguyen thu ba:"));
+
+      if (isNaN(x) || isNaN(y) || isNaN(z)) {
+        alert("Vui long nhap ca ba gia tri la so nguyen.");
+      } else {
+        let minValue = findMin(x, y, z);
+        document.getElementById("output").innerText =
+                "So nho nhat la: " + minValue;
+      }
+    }
+  </script>
+</head>
+<body onload="testFindMin()">
+
+<h2>Ket qua:</h2>
+<div id="output" style="font-size: 18px; font-weight: bold;"></div>
+
+</body>
+</html>

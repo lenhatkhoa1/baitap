@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tinh hinh tron</title>
+  <script>
+
+    function calculateArea(radius) {
+      return Math.PI * radius * radius;
+    }
+
+
+    function calculateCircumference(radius) {
+      return 2 * Math.PI * radius;
+    }
+
+
+    function testCircle() {
+      let input = prompt("Nhap ban kinh hinh tron:");
+      let r = parseFloat(input);
+      if (isNaN(r) || r <= 0) {
+        alert("Ban kinh khong hop le.");
+      } else {
+        let area = calculateArea(r);
+        let circumference = calculateCircumference(r);
+        document.getElementById("output").innerHTML =
+                "Ban kinh: " + r + "<br>" +
+                "Dien tich: " + area.toFixed(2) + "<br>" +
+                "Chu vi: " + circumference.toFixed(2);
+      }
+    }
+  </script>
+</head>
+<body onload="testCircle()">
+
+<h2>Ket qua tinh hinh tron:</h2>
+<div id="output" style="font-size: 16px; font-weight: bold;"></div>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng ký tự</title>
+    <script>
+        function kiemtramangkytu() {
+            const input = document.getElementById("charInput").value;
+            const arr = input.split(",").map(item => item.trim());
+            const isDigit = arr.every(char => /^\d$/.test(char));
+            const isLetter = arr.every(char => /^[a-zA-Z]+$/.test(char));
+
+            let result;
+            if (isDigit) {
+                result = 1;
+            } else if (isLetter) {
+                result = 0;
+            } else {
+                result = -1;
+            }
+            document.getElementById("result").textContent ="Ket qua: " + result;
+        }
+    </script>
+</head>
+<body>
+<h2>Kiem tra mang ky tu</h2>
+<p>Nhap mang ky tu</p>
+<input type="text" id="charInput" placeholder="">
+<button onclick="kiemtramangkytu()">Kiem tra mang</button>
+<p id="result"></p>
+</body>
+</html>

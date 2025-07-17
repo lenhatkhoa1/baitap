@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    function isPrime(num){
+      if(num <2) return false;
+      for(let i = 2; i <= Math.sqrt(num); i++) {
+        if(num % i == 0)return false;
+      }
+      return true;
+    }
+    function kiemtramangnguyento(){
+      const input = document.getElementById("numberInput").value;
+      const arr = input.split(",").map(x => parseInt(x.trim()));
+
+      const allPrimes = arr.every(isPrime);
+      const result = allPrimes ? "TRUE" : "FALSE";
+
+      document.getElementById("result").textContent = "Kết quả: " + result;
+    }
+
+  </script>
+</head>
+<body>
+<h2>Kiem tra cac mang nguyen to</h2>
+<p>Nhap cac so nguyen</p>
+<input type="text" id="numberInput" placeholder="">
+<button onclick="kiemtramangnguyento()">Kiem tra mang</button>
+<p id="result"></p>
+
+</body>
+</html>

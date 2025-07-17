@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý Sản phẩm</title>
+</head>
+<body>
+<h2>Danh sách sản phẩm</h2>
+<table id="productTable">
+  <tr>
+    <th>Tên</th>
+    <th>Giá</th>
+    <th>Hành động</th>
+  </tr>
+</table>
+
+<h3>Thêm sản phẩm</h3>
+<input type="text" id="nameInput" placeholder="Tên sản phẩm">
+<input type="number" id="priceInput" placeholder="Giá">
+<button onclick="addProduct()">Thêm</button>
+
+<script>
+  let products = [];
+
+  function renderProducts() {
+    const table = document.getElementById("productTable");
+    table.innerHTML = `
+        <tr>
+          <th>Tên</th>
+          <th>Giá</th>
+          <th>Hành động</th>
+        </tr>
+      `;
+    products.forEach((product, index) => {
+      table.innerHTML += `
+          <tr>
+            <td>${product.name}</td>
+            <td>${product.price}</td>
+            <td>
+              <button onclick="editProduct(${index})">Sửa</button>
+              <button onclick="deleteProduct(${index})">Xoá</button>
+            </td>
+          </tr>
+        `;
+    });
+  }
+
+  function addProduct() {
+    const name = document.getElementById("nameInput").value;
+    const price = document.getElementById("priceInput").value;
+    if (name && price) {
+      products.push({ name, price });
+      renderProducts();
+      document.getElementById("nameInput").value = '';
+      document.getElementById("priceInput").value = '';
+    }
+  }
+
+  function deleteProduct(index) {
+    products.splice(index, 1);
+    renderProducts();
+  }
+
+  function editProduct(index) {
+    const product = products[index];
+    const newName = prompt("Tên mới:", product.name);
+    const newPrice = prompt("Giá mới:", product.price);
+    if (newName && newPrice) {
+      products[index] = { name: newName, price: newPrice };
+      renderProducts();
+    }
+  }
+</script>
+</body>
+</html>

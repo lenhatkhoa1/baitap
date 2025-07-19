@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra phân số</title>
+</head>
+<body>
+<h2>Bài 4: Kiểm tra và rút gọn phân số</h2>
+<input type="text" id="inputFraction" placeholder="Nhập phân số, ví dụ: 12/48">
+<button onclick="find()">Kiểm tra</button>
+<p id="output"></p>
+
+<script>
+    function gcd(a, b) {
+        return b === 0 ? a : gcd(b, a % b);
+    }
+
+    function find() {
+        const input = document.getElementById('inputFraction').value;
+        const parts = input.split('/');
+
+        if (parts.length !== 2) {
+            document.getElementById('output').textContent = "Không phải là phân số";
+            return;
+        }
+
+        const numerator = parseInt(parts[0]);
+        const denominator = parseInt(parts[1]);
+
+        if (
+            isNaN(numerator) ||
+            isNaN(denominator) ||
+            denominator === 0
+        ) {
+            document.getElementById('output').textContent = "Không phải là phân số";
+            return;
+        }
+
+        if (numerator === 0) {
+            document.getElementById('output').textContent = "0";
+            return;
+        }
+
+        const divisor = gcd(numerator, denominator);
+        const simplified = `${numerator / divisor}/${denominator / divisor}`;
+        document.getElementById('output').textContent = simplified;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra mảng đối xứng</title>
+</head>
+<body>
+<h2>Bài 3: Kiểm tra mảng đối xứng</h2>
+<input type="text" id="arrayInput" placeholder="Nhập các số, ví dụ: 1,2,3,2,1" size="40">
+<button onclick="checkSymmetry()">Kiểm tra</button>
+
+<p id="result"></p>
+
+<script>
+  function checkSymmetry() {
+    const input = document.getElementById('arrayInput').value;
+    const arr = input.split(',').map(Number);
+    const reversed = [...arr].reverse();
+    const isSymmetric = arr.every((value, index) => value === reversed[index]);
+
+    document.getElementById('result').textContent =
+            `Mảng: [${arr.join(', ')}] - ${isSymmetric ? 'OK' : 'NO'}`;
+  }
+</script>
+</body>
+</html>

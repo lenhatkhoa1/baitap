@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Kiểm tra phần tử số nguyên</title>
+</head>
+<body>
+<h2>Kiểm tra mảng có toàn số nguyên</h2>
+<input type="text" id="inputArray" placeholder="Nhập mảng, ví dụ: 11,3,2,7 hoặc 1,3,4.2,6">
+<button onclick="isIntegerArray()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function isIntegerArray() {
+    const input = document.getElementById("inputArray").value;
+    const arr = input.split(',').map(x => parseFloat(x.trim()));
+
+    const isAllIntegers = arr.every(x => Number.isInteger(x));
+
+    document.getElementById("result").textContent = isAllIntegers ? "TRUE" : "FALSE";
+  }
+</script>
+</body>
+</html>

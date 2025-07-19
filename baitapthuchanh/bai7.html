@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra mảng ký tự</title>
+</head>
+<body>
+<h2>Kiểm tra mảng ký tự</h2>
+<input type="text" id="charArrayInput" placeholder='Nhập mảng, ví dụ: 1,a,5,b hoặc 2,3,8'>
+<button onclick="checkCharArray()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+    function checkCharArray() {
+        const input = document.getElementById("charArrayInput").value;
+        const arr = input.split(',').map(x => x.trim());
+
+        let isAllDigits = arr.every(char => /^\d$/.test(char));
+        let isAllLetters = arr.every(char => /^[a-zA-Z]$/.test(char));
+
+        let result;
+        if (isAllDigits) result = 1;
+        else if (isAllLetters) result = 0;
+        else result = -1;
+
+        document.getElementById("result").textContent = `Kết quả: ${result}`;
+    }
+</script>
+</body>
+</html>

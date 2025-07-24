@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đếm chữ in hoa</title>
+</head>
+<body>
+<h2>Kiểm tra số chữ in hoa:</h2>
+<p id="result"></p>
+
+<script>
+  function countUpperCase() {
+    const str = prompt("Nhập chuỗi cần kiểm tra:");
+    if (str === null) return;
+
+    let count = 0;
+    for (let char of str) {
+      if (char >= 'A' && char <= 'Z') {
+        count++;
+      }
+    }
+
+    const result = document.getElementById("result");
+    result.textContent = count > 0
+            ? `Có ${count} ký tự in hoa trong chuỗi.`
+            : "The string does not contain any uppercase characters.";
+  }
+
+
+  countUpperCase();
+</script>
+</body>
+</html>

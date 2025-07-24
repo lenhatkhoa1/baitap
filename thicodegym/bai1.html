@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hiệu tổng chẵn và lẻ</title>
+</head>
+<body>
+<h2>Tính hiệu tổng chẵn và tổng lẻ</h2>
+<p id="result"></p>
+
+<script>
+  const input = prompt("Nhập mảng số nguyên cách nhau bằng dấu phẩy");
+  const arr = input.split(",").map(Number);
+  const result = document.getElementById("result");
+
+  if (arr.length > 20) {
+    result.textContent = "Mảng không được vượt quá 20 phần tử!";
+  } else {
+    let tongChan = 0, tongLe = 0;
+    for (let num of arr) {
+      if (num % 2 === 0) {
+        tongChan += num;
+      } else {
+        tongLe += num;
+      }
+    }
+
+    const hieu = tongChan - tongLe;
+    result.innerHTML = `=
+        Mảng bạn nhập: [${arr.join(', ')}] <br>
+        (${tongChan}) - (${tongLe}) = ${hieu}
+      `;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 11 - Kiểm Tra Tam Giác</title>
+</head>
+<body>
+<h2>Nhập ba cạnh của tam giác:</h2>
+<input type="number" id="x" placeholder="x">
+<input type="number" id="y" placeholder="y">
+<input type="number" id="z" placeholder="z">
+<button onclick="checkTriangle()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function checkTriangle() {
+    const x = parseFloat(document.getElementById("x").value);
+    const y = parseFloat(document.getElementById("y").value);
+    const z = parseFloat(document.getElementById("z").value);
+    const result = document.getElementById("result");
+
+
+    if (x <= 0 || y <= 0 || z <= 0 || x + y <= z || x + z <= y || y + z <= x) {
+      result.textContent = "Không phải là cạnh của 1 tam giác";
+      return;
+    }
+
+ 
+    const sides = [x, y, z].sort((a, b) => a - b); // sắp xếp để kiểm tra dễ hơn
+    if (Math.abs(sides[0]**2 + sides[1]**2 - sides[2]**2) < 0.0001) {
+      result.textContent = "Là 3 cạnh của 1 tam giác vuông";
+    } else {
+      result.textContent = "Chỉ là 3 cạnh của một tam giác";
+    }
+  }
+</script>
+</body>
+</html>

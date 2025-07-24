@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 10 - Tìm Nguyên Âm</title>
+</head>
+<body>
+<h2>Nhập chuỗi cần kiểm tra:</h2>
+<input type="text" id="inputString" placeholder="Ví dụ: Codegym DaNang A" size="40">
+<button onclick="checkString()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function checkString() {
+    const str = document.getElementById("inputString").value.toLowerCase();
+    const vowels = ['a', 'e', 'i', 'o', 'u'];
+    const result = [];
+
+    for (let char of str) {
+      if (vowels.includes(char) && !result.includes(char)) {
+        result.push(char);
+      }
+    }
+
+    document.getElementById("result").textContent = `→ [${result.join(', ')}]`;
+  }
+</script>
+</body>
+</html>

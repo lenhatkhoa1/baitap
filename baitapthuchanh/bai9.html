@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bài 9 - Kiểm Tra Mảng</title>
+</head>
+<body>
+<h2>Nhập mảng số nguyên</h2>
+<input type="text" id="arrayInput" placeholder="Ví dụ: 1,2,6,7,5,8" size="40">
+<button onclick="checkArray()">Kiểm tra</button>
+<p id="result"></p>
+
+<script>
+  function checkArray() {
+    const input = document.getElementById("arrayInput").value;
+    const arr = input.split(",").map(Number);
+    const output = document.getElementById("result");
+
+    if (arr.length % 2 !== 0) {
+      output.textContent = "Độ dài mảng phải là số chẵn.";
+      return;
+    }
+
+    let isValid = true;
+    for (let i = 0; i < arr.length; i += 2) {
+      if (arr[i] >= arr[i + 1]) {
+        isValid = false;
+        break;
+      }
+    }
+
+    output.textContent = isValid ? "OK" : "NO";
+  }
+</script>
+</body>
+</html>
